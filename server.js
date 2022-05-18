@@ -23,6 +23,7 @@ app.get("/budgets/new", (req, res) => {
 //Create
 app.post('/budgets', (req, res) => {
     console.log(req.body)
+    req.body.amount = Number(req.body.amount)
     budget.push(req.body)
     res.redirect("/budgets")
 });

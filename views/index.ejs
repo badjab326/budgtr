@@ -11,9 +11,12 @@
 <div class="container">
 <body>
     <p>
-    <% let bankAccount = 0 %>
-    Bank Account Balance
+    <% let bankAccount = Budget.reduce((previous, current) => {
+        return previous + current.amount
+    }, 0) %>
+    Bank Account Balance <br />
     <%= bankAccount %>
+
     </p>
     <h1>Budgtr ALL</h1>
         <% for (let i = 0; i < Budget.length; i++) { %>
@@ -41,6 +44,19 @@
         <% } %>
         <button onclick="location.href='/budgets/new/'">Add New</button>
 
+<% if (bankAccount < 0) { %>
+    <style type="text/css">
+        body {
+          background-color: red;
+        }
+    </style>
+<% }else if (bankAccount >= 1000) { %>
+    <style type="text/css">
+        body {
+          background-color: green;
+        }
+    </style>
+<% } %>
 </body>
 </div>
 </html>
