@@ -3,9 +3,12 @@ const res = require('express/lib/response');
 const Budget = require('./models/budget');
 const app = express();
 const port = 3000;
+const bodyParser = require('body-parser');
+const budget = require('./models/budget');
 
 //Mount Middleware
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: false }))
 
 //Index
 app.get('/budgets', (req, res) => {
@@ -18,8 +21,10 @@ app.get("/budgets/new", (req, res) => {
 });
 
 //Create
-app.post('/budgets', (re1, res) => {
-    res.redirect("index.ejs");
+app.post('/budgets', (req, res) => {
+    console.log(req.body)
+    budget.push(req.body)
+    res.redirect("/budgets")
 });
 
 //Show

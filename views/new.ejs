@@ -8,7 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
     <title>New</title>
 </head>
+<div class="container">
 <body>
-    
+    <h1>Create a New Line Item</h1>
+    <form action="/budgets" method="POST">
+        <input type="text" name="date" placeholder="date"/>
+        <input type="text" name="name" placeholder="name"/><br />
+        <input type="text" name="amount" placeholder="amount"/>
+        <input type="text" name="from" placeholder="from"/><br />
+        <input type="text" name="tags" placeholder="tags"/><br />
+        <input type="submit" value="Create New Item" />
 </body>
+</div>
 </html>
